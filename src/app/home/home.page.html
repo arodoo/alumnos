@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="agregarAlumno()">
+        Agregar
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Alumno</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngFor="let alumno of alumnos">
+    <ion-item-sliding>
+    <ion-item>
+        <ion-avatar slot="start">
+          <div class="avatar">
+            {{ alumno.nombre.substring(0,1).toUpperCase() }}
+          </div>
+        </ion-avatar>
+        <ion-label>
+          <h3 class="title">{{ alumno.nombre }}</h3>
+          <p class="subtext">
+            {{ alumno.correo }}
+          </p>
+          <p class="subtext">
+            {{ alumno.telefono }}
+          </p>
+        </ion-label>
+    </ion-item>
+
+    <ion-item-options side="end">
+      <ion-item-option color="danger" (click)="borrarAlumno(alumno.id)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-item-option>
+      <ion-item-option color="success">
+        <ion-icon name="create"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
